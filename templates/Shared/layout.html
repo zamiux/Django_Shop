@@ -1,3 +1,4 @@
+{% load layout_inclusions %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,13 +8,13 @@
     </head><!--/head-->
     {% include 'Shared/_HeaderRefrences.html' %}
 <body>
-	{% include 'Shared/HeaderSite.html' %}
+	{% site_header_inclusion %}
 	
 	{% block content %}
 
 	{% endblock %}
 	
-    {% include 'Shared/FooterSite.html' %}
+    {% site_footer_inclusion %}
   
     {% include 'Shared/_FooterRefrences.html' %}
 </body>
