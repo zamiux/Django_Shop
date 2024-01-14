@@ -29,6 +29,7 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/base/templates" />
+        <option value="$MODULE_DIR$/slider/templates" />
       </list>
     </option>
   </component>
