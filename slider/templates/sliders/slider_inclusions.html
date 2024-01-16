@@ -1,3 +1,5 @@
+{% load thumbnail %}
+
 <section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
@@ -20,7 +22,10 @@
 									<a href="{{ slider.url }}" class="btn btn-default get">{{ slider.url_title }}</a>
 								</div>
 								<div class="col-sm-6">
-									<img src="{{ slider.image.url }}" class="girl img-responsive" alt="" />
+
+                                    {% thumbnail slider.image "484x441" crop="center" watermark_size="x100" watermark_pos="north east" watermark_alpha=0.9 as im %}
+                                     <img alt="" class="girl img-responsive" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" >
+                                    {% endthumbnail %}
 								</div>
 							</div>
 							{% endfor %}

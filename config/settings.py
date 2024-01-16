@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # add project-apps or modules
     'base',
-    'slider'
+    'slider',
+    'admin_panel',
+    #packages
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +139,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static_cdn','media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#sorl image watermark
+THUMBNAIL_ENGINE = 'sorl_watermarker.engines.pil_engine.Engine'
+#THUMBNAIL_WATERMARK = '/static/site/images/my_watermark.png'
+THUMBNAIL_WATERMARK = os.path.join(BASE_DIR,'static','site','images','my_watermark.png')

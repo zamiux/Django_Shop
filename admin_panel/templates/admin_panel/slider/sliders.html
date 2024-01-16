@@ -1,0 +1,78 @@
+{% extends 'admin_panel/shared/layout.html' %}
+{% load thumbnail %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="widget">
+                <div class="widget-header bordered-bottom bordered-blue">
+                    <span class="widget-caption">جستجو</span>
+                </div>
+                <div class="widget-body">
+                    <div>
+                        <form action="{% url 'sliders_list_view' %}" method="get">
+                            <div class="form-group">
+                                <label>عنوان</label>
+                                <input name="title" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>آدرس url</label>
+                                <input name="url" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-blue">جستجو</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="well with-header with-footer">
+                <div class="header bordered-blue">
+                    {{ page_title }}
+                </div>
+                <div class="table-scrollable">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">تصویر</th>
+                            <th scope="col">عنوان</th>
+                            <th scope="col">آدرس url</th>
+                            <th scope="col">عنوان آدرس url</th>
+                            <th scope="col">دستورات</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for slider in sliders %}
+                            <tr>
+                                <td>
+                                    {% thumbnail slider.image "100x100" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                    {% endthumbnail %}
+                                </td>
+                                <td>{{ slider.title }}</td>
+                                <td>{{ slider.url }}</td>
+                                <td>{{ slider.url_title }}</td>
+                                <td></td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="footer">
+                    <ul class="pagination pagination-sm">
+                        <li class="disabled"><a href="#">«</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

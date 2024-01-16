@@ -30,6 +30,7 @@
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/base/templates" />
         <option value="$MODULE_DIR$/slider/templates" />
+        <option value="$MODULE_DIR$/admin_panel/templates" />
       </list>
     </option>
   </component>

@@ -1,4 +1,9 @@
 from django.db import models
+#thumbnail
+from django.utils.safestring import mark_safe
+from sorl.thumbnail import get_thumbnail
+
+
 
 # Create your models here.
 class Slider(models.Model):
@@ -13,6 +18,10 @@ class Slider(models.Model):
           return self.title
 
 
+     #for show image in list box
+     def image_box(self):
+          im = get_thumbnail(self.image, '100x100', crop='center', quality=99)
+          return  mark_safe(f'<img src="{im.url}" />')
 
      class Meta:
           verbose_name = 'اسلایدر'
